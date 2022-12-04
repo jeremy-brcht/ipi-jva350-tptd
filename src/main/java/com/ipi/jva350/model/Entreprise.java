@@ -3,6 +3,8 @@ package com.ipi.jva350.model;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.ipi.jva350.exception.NotImplementedException;
+
 public final class Entreprise {
 
     private static final Map<Integer, LocalDate> datePaque = new HashMap<>();
@@ -133,15 +135,15 @@ public final class Entreprise {
         int monEntier = (int) Entreprise.joursFeries(jour).stream().filter(d ->
                 d.equals(jour)).count();
         int test = bissextile(jour.getYear()) ? 1 : 0;
-        if (test != 0 && !(monEntier > 1)) {
+        if (test != 0 && monEntier <= 1) {
             test--;
         }
         return monEntier != test;
     }
 
-    public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
+    public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) throws NotImplementedException {
         // à implémenter en TDD !
-        throw new RuntimeException("à implémenter en TDD !");
+        throw new NotImplementedException();
     }
 
 }
