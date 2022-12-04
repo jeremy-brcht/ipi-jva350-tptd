@@ -72,4 +72,19 @@ public class SalarieAideADomicileTest {
         // attendu
         Assertions.assertThat(droitCongesPayesOk).isEqualTo(expected);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'2022-11-01', '2022-11-10', 8",
+            "'2022-11-01', '2022-11-12', 9",
+            "'2022-10-31', '2022-11-03', 3",
+
+    })
+    void testCalculeJoursDeCongeDecomptesPourPlage(String dateDebut, String dateFin, int expected) {
+        LocalDate dateDebutParsed = LocalDate.parse(dateDebut);
+        LocalDate dateFinParsed = LocalDate.parse(dateFin);
+        SalarieAideADomicile salarie = new SalarieAideADomicile();
+        LinkedHashSet<LocalDate> jourDeCongesDecompte = salarie.calculeJoursDeCongeDecomptesPourPlage(dateDebutParsed, dateFinParsed);
+        Assertions.assertThat(jourDeCongesDecompte.size()).isEqualTo(expected);
+    }
 }
