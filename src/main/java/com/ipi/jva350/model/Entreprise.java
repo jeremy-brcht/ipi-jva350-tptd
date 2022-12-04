@@ -3,6 +3,8 @@ package com.ipi.jva350.model;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.ipi.jva350.exception.NotImplementedException;
+
 public final class Entreprise {
 
     private static final Map<Integer, LocalDate> datePaque = new HashMap<>();
@@ -139,9 +141,9 @@ public final class Entreprise {
         return monEntier != test;
     }
 
-    public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
+    public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) throws NotImplementedException {
         // à implémenter en TDD !
-        throw new RuntimeException("à implémenter en TDD !");
+        throw new NotImplementedException();
     }
 
 }
