@@ -112,7 +112,9 @@ public class SalarieAideADomicile {
         for (jour = jour.plusDays(1); jour.minusDays(1).isBefore(dateFin)
                 || (!estHabituellementTravaille(jour) && estJourOuvrable(jour)); jour = jour.plusDays(1)) {
             if (jour.getDayOfWeek().getValue() != DayOfWeek.SUNDAY.getValue()
-                    && !Entreprise.estJourFerie(jour)) {
+                    && !Entreprise.estJourFerie(jour)
+                    || (jour.getDayOfWeek().getValue() == DayOfWeek.SATURDAY.getValue()
+                            && jour.plusDays(6).isAfter(dateFin))) {
                 joursDeCongeDecomptes.add(jour);
             }
         }
