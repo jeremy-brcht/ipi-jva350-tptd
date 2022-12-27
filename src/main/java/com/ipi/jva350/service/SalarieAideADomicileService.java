@@ -58,7 +58,7 @@ public class SalarieAideADomicileService {
      * Utilisé par ajouteMois(). NB. ajouteMois() a déjà vérifié que le congé est
      * dans l'année en cours.
      * 
-     * @param moisEnCours                   du salarieAideADomicile
+     * @param moisEnCours du salarieAideADomicile
      * @param congesPayesAcquisAnneeNMoins1 du salarieAideADomicile
      * @parma moisDebutContrat du salarieAideADomicile
      * @param premierJourDeConge demandé
@@ -186,7 +186,7 @@ public class SalarieAideADomicileService {
      * @param salarieAideADomicile TODO nom ?
      * @param joursTravailles
      */
-    public void clotureMois(SalarieAideADomicile salarieAideADomicile, double joursTravailles) throws SalarieException {
+    public void clotureMois(SalarieAideADomicile salarieAideADomicile, double joursTravailles) {
         salarieAideADomicile
                 .setJoursTravaillesAnneeN(salarieAideADomicile.getJoursTravaillesAnneeN() + joursTravailles);
 
