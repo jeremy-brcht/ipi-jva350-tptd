@@ -21,6 +21,7 @@ public class SalarieAideADomicileService {
     private SalarieAideADomicileRepository salarieAideADomicileRepository;
 
     public SalarieAideADomicileService() {
+      // TODO document why this constructor is empty
     }
 
     /**
@@ -57,7 +58,7 @@ public class SalarieAideADomicileService {
      * Utilisé par ajouteMois(). NB. ajouteMois() a déjà vérifié que le congé est
      * dans l'année en cours.
      * 
-     * @param moisEnCours                   du salarieAideADomicile
+     * @param moisEnCours du salarieAideADomicile
      * @param congesPayesAcquisAnneeNMoins1 du salarieAideADomicile
      * @parma moisDebutContrat du salarieAideADomicile
      * @param premierJourDeConge demandé
@@ -126,7 +127,7 @@ public class SalarieAideADomicileService {
         LinkedHashSet<LocalDate> joursDecomptes = salarieAideADomicile
                 .calculeJoursDeCongeDecomptesPourPlage(jourDebut, jourFin);
 
-        if (joursDecomptes.size() == 0) {
+        if (joursDecomptes.isEmpty()) {
             throw new SalarieException("Pas besoin de congés !");
         }
 
@@ -185,7 +186,7 @@ public class SalarieAideADomicileService {
      * @param salarieAideADomicile TODO nom ?
      * @param joursTravailles
      */
-    public void clotureMois(SalarieAideADomicile salarieAideADomicile, double joursTravailles) throws SalarieException {
+    public void clotureMois(SalarieAideADomicile salarieAideADomicile, double joursTravailles) {
         salarieAideADomicile
                 .setJoursTravaillesAnneeN(salarieAideADomicile.getJoursTravaillesAnneeN() + joursTravailles);
 
