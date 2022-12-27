@@ -22,4 +22,20 @@ public class EntrepriseTest {
 
         Assertions.assertThat(res).isEqualTo(expected);
     }
+    
+    @ParameterizedTest
+    @CsvSource({
+            "'2022-11-03', '2022-11-02', '2022-11-04', true",
+            "'2022-11-02', '2022-11-02', '2022-11-04', true",
+            "'2022-11-04', '2022-11-02', '2022-11-04', true",
+            "'2022-11-01', '2022-11-02', '2022-11-04', false",
+            "'2022-11-05', '2022-11-02', '2022-11-04', false",
+
+    })
+    void testEstDansPlage(LocalDate d, LocalDate debutDate, LocalDate finDate, Boolean expected) {
+
+        Boolean res = Entreprise.estDansPlage(d, debutDate, finDate);
+
+        Assertions.assertThat(res).isEqualTo(expected);
+    }
 }
